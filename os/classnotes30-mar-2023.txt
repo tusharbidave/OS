@@ -1,0 +1,318 @@
+
+
+Good Evening :)
+
+Revision = 
+cpu burst time = Tcpu 
+throughput 
+IO WAIT STATE
+DMA 
+Ta = Turnaround time
+IR 
+Interrupt Vector table
+FIFO disadvantages and advantages
+Tw 
+__________________________________
+Scheduling algorithm  is used for selecting a process from the ready queue --- such that Tw is low so Ta is low so throughput is high
+
+Priority Scheduling Algorithm  ----  select the process with highest priority 
+
+	priority  can be assigned in different ways
+	1. user process or kernel process
+	2. userwise priority 
+	3. programmer can also specify priority of process through system call 
+	
+	Priority is from range 1 to 10 for example!!!!
+
+advantages -- priority of a process is considered
+disadvantages --- STARVATION of Lower priority process.
+
+
+Preemptive Priority Scheduling -- If a higher priority process arrives in the ready queue then the kernel will preempt the currently running process and the higher priority process runs on CPU 
+
+Non Preemptive Priority Scheduling --- no preemption 
+
+Assume range of priority 1 to 10 
+1 is smallest 10 is highest
+
+process     arrivaltime  Tcpu    Priority
+ P1            0          5        3
+ P2            1          4        8
+ P3            2          6        9
+ P4            0          7        5
+ 
+ 
+ calculate average Ta and Tw using Preemptive Priority --
+ Tw = (starttime-arrivaltime ) + (resumetime-preempttime)
+ 
+ P1 = 17-0 = 17
+ P2 = (1-1)+ (8-2) = 0 +6 = 6
+ P3 =(2-2) = 0
+ P4 =(0-0) + ( 11-1)  = 10
+ 
+ Ta = Tw + Tcpu 
+ P1 = 17+5 = 22 , P2 = 6+4=10 ,P3 =0+6=6 ,P4 =10+7=17
+ 
+ _____________________________________
+ CONTEXT SWITCHING = save the context of outgoing process and load the context of incoming process in the cpu
+ 
+ CONTEXT = Snapshot of CPU registers at a given time .
+ 
+ Advantage of CONTEXT SWITCHING = process can RESUME from where it left.
+ Disadvantge --  overhead !!
+ _____________________________________
+ 
+ calculate average Tw and Ta using
+ 1. Non preemptive priority 
+ 
+	Tw = starttime - arrivaltime
+	P1  17-0 = 17
+	P2  13 -1 = 12
+	P3  7-2 = 5
+	P4  0-0 =0
+ 
+ Ta  = Tw + Tcpu
+  P1  = 17 +  5 = 22
+  P2 = 12 + 4 = 16
+  P3 = 5+ 6 = 11
+  P4 = 0 +7 = 7
+ _______________________________________
+
+Round Robin Scheduling --- the process in the front of the queue is selected to run on cpu.
+
+The cpu is alloted for a specific TIME QUANTUM = TIME SLICE = DURATION 
+
+After the time slice is over the TIMER INTERRUPT occurs , the current process is moved to the end of ready queue and next process in the front is selected to run on cpu 
+
+
+advantages =  no starvation
+              response time improves 
+			  MULTITASKING effect is achieved= feeling of simultaneous execution
+			  
+
+disadvantages = too much context switching overhead
+			  = Tw increases,Ta increases, throughput decreases .
+
+Assume that the time quantum is 2ms
+
+process  arrivaltime  Tcpu
+ P1         0          4
+ P2         1          5
+ P3         2          6
+ 
+ calculate avg Tw and avg Ta using round robin (RR).
+ 
+ Tw (starttime-arrivaltime) + (resume-timer )
+ P1 (0-0)+ (6-2) = 4
+ P2 (2-1) + (8-4) +(12-10 ) = 7
+ P3 (4-2) + (10-6) +(13-12) = 7
+ 
+ Ta = Tw + Tcpu
+ P1 = 4+4=8 , P2 = 7+5=12, P3 =6+7 = 13
+ 
+ ____________________________________________
+ 
+ Linux  ----------
+ 
+  man commandname  } manual page opened in vi editor
+						read only page
+						come out using :q (quit)
+ 
+ 
+ HW - sequence
+    pwd   = /home/iet  } keep this unchanged
+	mkdir f1 
+	mkdir f2
+	ls 
+	mkdir ./f1/f3
+	ls ./f1   }} you should see f2 folder created
+	touch ./f1/f3/test1
+	ls -l ./f1/f3   }} check if test1 is created
+	touch ./f2/test2
+	vi ./f2/test2  }} edit the file
+	cat ./f2/test2
+_______________________________________
+
+HW ----sequence 2
+ copy the file test2 to f3 folder
+ cp  source destination 
+ cp  ./f2/test2   ./f1/f3
+ ls -l ./f1/f3   }} check if test2 is copied
+ ls -l ./f2
+ 
+ __________________________________
+ HW ----------sequence 3
+ move the file test1 from f3 to f2
+ mv source destination
+ mv ./f1/f3/test1  ./f2
+ ls -l ./f1/f3   }} check that test1 is removed from f3
+ ls -l ./f2  }} check that test1 is in f2
+ ____________________________________________
+ HW -------------sequence 4
+ move the folder f1 to f5
+ mkdir f5
+ ls  }} current folder has f1 f2 and f5
+ mv ./f1 ./f5
+ ls -l  }} see that the folder is removed from current
+ ls -l ./f5  }} see folder is moved to f5
+ ----------------------------------------
+ HW -------sequence 5 
+ copy f2 to f5
+ ls
+ cp -r ./f2 ./f5
+ ls 
+ ls ./f5
+ ----------------------------------------
+ HW -------sequence 6
+ rename a file test2 in ./f2  as beta
+ mv source destination
+ mv ./f2/test2  ./f2/beta 
+ ls -l ./f2
+ cat ./f2/beta
+ ----------------------------
+ run the shellscript file as discussed in class
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+	
+  
+ 
+  
+ 
+ 
+ 
+
+
+
+
+
+
+
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                           

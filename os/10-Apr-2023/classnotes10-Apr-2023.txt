@@ -1,0 +1,196 @@
+
+
+
+Good Evening :)) 
+
+  Lab module end ---  shell scripts + fork +thread
+  
+  Signals in Linux ---- 
+  	Signals are similar to interrupts that we can generate programmatically  and send to a running  process.
+  	
+  	 CTRL - C = SIGINT sent to a process
+  	 kill = we send signals to a process
+  	 
+   signal.h 
+   system call to MAP a signal with its handler ---
+   	signal( signalnumber, signalhandler )
+  
+   signals are denoted by int constants !!!	
+  	
+  CTRL-C = sends a SIGINT value 2  to the process,  Maskable signal. I can write my own handler .
+  
+  By default Kill command sends a SIGTERM value 15 
+  to the process whose pid is given-- it will terminate the process forcefully 
+  
+  kill -15 pid  }  SIGTERM , maskable
+  kill -9 pid  } SIGKILL , this is non maskable signal
+  
+  Similar to kill command --on the CLI 
+  we can also give kill system call --- in the C prog
+  
+  if one process is sending a kill command to another process ----- IPC !!! --- Signal may also act as IPC
+  
+  _______________________________________
+  
+  Memory management 
+  	dirty bit, 
+  	belady's anomaly
+  
+  page -- has a property called as dirty bit
+  	if dirty bit is set - means that page is modified and it should be rewritten on swap space
+  	if dirty bit is not set - page is not modified so no need to rewrite on HDD
+  ________________________________________________
+  
+  Anomaly ---irregularity 
+  
+  Page Replacement related anomaly - belady's anomaly
+  
+  Normally --- if more frames are allocated per process then page faults should decrease
+  anomally --- if more frames are allocated per process then page faults increase in some page replacement algorithms
+  
+  Belady's anomaly may occur in FIFO page replacement policy.
+  
+  Belady's anomaly does not occur in LRU 
+ _______________________________________
+ 
+ Data sharing between processes and threads !!!
+
+ Problem in data sharing = RACE CONDITION 
+ 
+ RACE CONDITION -  shared data becomes inconsistent 
+
+Solution to RACE CONDITION = Mutual Exclusion 
+   --- Dont allow code using shared data to run at a time .
+   
+   --- IDENTIFY which code changes shared data = CRITICAL SECTION  = code that uses shared data 
+   
+   Put a lock such that two critical sections cannot run at a time !!!
+   
+   This LOCK is called as SEMAPHORE !!!
+   
+   Semaphore is an integer value that can be accessed by ONLY 2 atomic functions called as wait and signal
+   or P and V.
+   
+   atomic function = the function that never gets interrupted --- so no threat of race condition
+   
+   0 = closed and 1 = opened 
+   
+   wait(sema)
+   {
+   	if(sema ==0 )  then wait
+   	else 
+   	sema--  and return 
+   }
+   
+   signal(sema)
+   {
+   	sema++
+   }	
+  
+  This semaphore is called as binary semaphore or MUTEX ( the one which achieves mutual exclusion of critical section )
+  
+ MUTEX semaphore = toggle 
+ 
+ Another type of semaphore is called as COUNTING SEMAPHORE -----  value increments from 0 to n 
+ 	and decrements from n to 0 
+ It acts as  race condition PROOF data for IPC 
+  
+  THREAD SAFE /THREAD SAFETY 
+  CONCURRENCY PROTECTED
+  
+  
+  Process Synchronization = using mutual exclusion to  solve race condition
+  
+  
+ Classical Process Synchronization Problem = Producer Consumer Problem  = Bounded Buffer Problem 
+ 
+    Producer  ------------Buffer ------ Consumer
+                                          while(1)
+                                             consume()
+      while(1) 
+        produce_an_item() 
+ 
+ The problem is to PROTECT the buffer from simulaneous access using MUTEX 
+ The problem is to keep track of how many full spaces and how many empty spaces are present in the buffer
+ using two counting semaphores full and empty 
+ 
+ assume that buffer has 6 slots
+initial values of full = 0 , empty = 6
+ mutex =1 (open)
+ 
+ producer
+ 	
+ 	while(1)
+ 	{
+ 	     produce()
+ 	     wait(empty)
+ 	     wait(mutex)
+ 	       add_to_buffer()
+ 	     signal(mutex)
+ 	     signal(full)	
+ 	}
+ 
+ 
+ consumer
+ 	while(1)
+ 	{
+ 	   wait(full)
+ 	   wait(mutex)
+ 	   	consume()
+ 	   signal(mutex)
+ 	   signal(empty)
+         }
+ ___________________________________________
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  	
+  	
+  	
+  	
+  	
+  	
+  	

@@ -1,0 +1,120 @@
+Definition of OS
+System  --- HW 
+____________________________
+
+How many OS are present in the universe ??? > 500
+
+Linux based OS 
+		Open source = source code is available
+		GNU public license = anyone can use it without purchasing license.
+		Many flavors 
+		  --ubuntu , fedora, kali, centos, debian , red hat, mandrake, mandriva , mint , BOSS( bharat operating system services --- CDAC -- available in many indian languages )
+		  
+TO use or learn Linux based OS for ex Ubuntu 
+   1. dual boot the system
+   2. virtual box installed on top of windows 
+   3. create a ubuntu server and connect to it and use it
+   4. WSL  = windows subsystems for linux 
+   5. use online linux installation through browser
+   
+   
+ Windows --- GUI intensive
+ Ubuntu ---- CLI intensive
+   
+   1. Open the ubuntu terminal == command prompt 
+   
+   Prompt ---  the place where we can enter command on terminal 
+   iet@DESKTOP-4DV5G8K:~$  ENTER  THE COMMAND HERE 
+   
+   2. @ the prompt enter command  = clear press enter
+       It will clear the screen 
+	
+   3.  File handling commands 
+			manage folders = create directory
+							 delete directory
+							 add files to directory
+							 go to a directory
+							 rename 
+							  change permissions
+							  see the contents of directory
+							  
+			manage files = create files
+						  delete files	
+						  see the contents of files
+						  rename
+						  permissions
+						  edit file
+						  
+						  
+1.  WHAT is the current working folder ?   
+
+   pwd  = present working directory
+	/home/iet
+							  
+	topmost folder in a linux FS ( file system)
+			/   = forward slash 
+
+    topmost  folders in a windows FS 
+			c:\
+			D:\
+			E:\
+			etc....
+							  
+			
+		/
+		subfolder --- home
+		                ---subfolder ---iet 
+			
+			
+2.  in the current working folder how to create a subfolder ?
+
+		mkdir  nameofsubfolder  
+		
+		
+3. how to make any folder as current folder  ?
+
+		cd =  change directory
+
+		cd ..   }  make PARENT folder as current folder
+
+		.. = parent 
+		. = current 
+
+HW  ---   create a folder structure as follows 
+		OS
+		-----Planets
+		        -----earth
+				        -----moon
+				-----jupiter
+				-----mars
+
+
+5. How to see the contents of a folder ?  
+		ls = listing  
+
+HW ---  see the contents of /
+		 see the contents of  /bin
+		 see the contents of  /media
+
+
+			
+			
+			
+			
+	
+	
+	
+	
+	
+   
+   
+
+
+
+
+
+
+		  
+		  
+		  
+		  

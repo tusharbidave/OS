@@ -1,0 +1,150 @@
+
+
+Good Evening :)
+
+Revision -
+context
+context switiching
+advantages of RR
+DMA
+What r the states in process lifecycle
+IVT
+chmod
+starvation
+ready queue
+_________________________________
+ 
+ SHELL  ---  program that runs the command line interface of OS ( CLI  )
+ 
+ SHELL is an interpreter !!
+ Default shell --- bash 
+ Other shells --- KSH ,CSH ,TCSH  ,....
+ Every shell has a different set of commands !!!
+ 
+ SHELL script = program written using SHELL commands !!!
+ 
+ Generally we give extension as  .sh  to a shell script
+ not compulsary
+__________________________________
+ Ex1 - write a shell script that prints hello world .
+ shell command for printing = echo
+ 
+ run it using bash interpreter  }}} bash hello.sh
+ also run it without using bash }}} chmod u+x hello.sh	
+								}}}  ./hello.sh
+ ____________________________________________
+ 
+ Q. where is the bash shell program locates on FS ?
+ A. in the  /bin folder 
+ 
+ Q.  How are the commands searched by the kernel ?
+ A.  using environment variable  PATH
+ 
+ Q. How to see the value of variable  ?
+ A.    echo $PATH  }}} show the value of PATH variable
+       echo $SHELL  }}} 
+	   echo $USER 
+
+
+Q. HOW does PATH variable help ?
+A.  kernel wants to find the command
+     it will check each path in thePATH variable
+
+
+ENVIRONMENT VARIABLES --- GLOBAL VARIABLES 
+The values are set and read by any program in the system
+
+Q. What is the PS1 environment variable ?
+A.  PS1 = prompt string 1 
+    it will set the prompt string
+	iet@DESKTOP-4DV5G8K:~/shellscripts$
+
+Q. How to change the prompt string , how to change any environment variable  ? 
+        export PS1=value
+ 
+Q. Declare a variable in the hello.sh and print it 
+		x=100  #dont give spaces before and after =
+		echo $x
+		
+Q. Accept the variable value from user and print it 
+			read x
+			
+Q. Write a shell script to accept a file name and print its contents.
+ 
+ 
+ 
+Q. Write a shell script to accept a name from user
+        create a folder of that name
+		show the long listing of that folder
+		
+____________________________________________
+Q.  How to run a C program in ubuntu ?
+		1. write a c program  }}}  vi  hello.c
+		2. compile it using a gcc compiler 
+				gcc hello.c
+		
+		 use ls -l to check if the a.out is created!!!
+		
+		3. run the output file 
+				./a.out
+				
+Default name of the output file is a.out!!
+To give another name to the output of the gcc use -o option
+		gcc -o h1 hello.c
+		
+This command will create executable file with name h1
+		
+____________________________________________
+process management commands ---
+	ps = process status of the current terminal
+
+TTY = terminal type --- every window of cli is a terminal with a unique tty number .
+
+ps -e }} show process status of the entire ubuntu
+			( all terminals )
+
+
+ps -e -o PCPU
+
+ps -e -f }} full details of processes on ubuntu 
+
+_________________________________________________
+
+System calls -----  
+
+kernel functions
+	know INFO about-name, parameter list, return type, library ,what does the function do 
+
+System call ---
+ getpid
+ getppid
+
+ppid = parent process id !!!!!
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+
+
+
+
+
+
+
+

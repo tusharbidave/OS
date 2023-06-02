@@ -1,0 +1,247 @@
+
+
+
+Good Evening :)
+
+ tr  command = translate by replacing
+ 
+ tr "searchstr" "newstr"  original
+
+ tr "a" "A" < players
+ 
+ tr "[a-z]" "[A-Z]" < players
+ 
+ Ex1 - write a shell script that will convert all small case to uppercase in a file. accept file name from user
+ 
+ 
+ 
+ Ex2 --- accept a name from the user and convert it to title case
+ 	prachi  ===> output   Prachi
+ 	pRaChi =====>Output  Prachi
+ 	
+ 	
+ Other tr commands 
+  echo "hello" |  tr -d "l"  
+  It will delete all occurences of l from the input 
+ 
+ ___________________________________
+ 
+ Ex 3 = find the number of blank lines in a given file 
+ 
+ grep  "^$" blankex | wc -l
+ 
+ To find count of non blank lines 
+  grep -v "^$" blankex | wc -l
+  
+ _______________________________________
+ 
+ Ex1 -- write a shell script to find the total processes running on a system
+ 
+ 	ps -e | wc -l  ( deduct 1 from it  )
+ 	
+ ____________________________________________________
+ 
+Ex1  write a shellscript to find average of Wait time 
+ 
+ _______________________________________
+ 
+ Thread Management -----
+ 
+ Process = Program in execution
+ 	 = PID , PCB
+ 	 = Process address space ( code,data ,stack ,heap )
+ 	 
+
+Every process MUST have at least one thread !!!
+
+Thread = Path of execution within a process 
+
+path of execution specifies sequence of instruction execution!! 
+
+___________________
+
+Every thread has a TCB and a tid !!
+Also every thread follows the lifecycle states -
+    created, ready, running, waiting and terminated
+    
+_while thread creation a new stack is created per thread !!
+______________________________
+
+Process creation 
+
+Thread Creation  == less effort  = Lightweight process
+_______________________
+
+ If two processes want to communicate with each other so additional system calls have to be made to create a shared space ---- extra overhead !!!
+ 
+ All the threads within a process share the code segment data segment and heap segment !!! --- lightweight as compared to process
+ 
+___________________________________
+ 
+ Multithreading --------  One process can have many threads other than main thread !!!
+ 
+ all threads compete with each other in ready queue 
+ and they will run in RR 
+ 
+ simulteneous tasks are performed within a process!!!
+ Example --
+ process  GAME --- threads ---player 1 move, player2 move, timer
+ 
+ process Zoom  --- thread1 --video , thread2 audio 
+ 			thread3 - screenshare
+ 			thread4 - chat
+ 			
+ 			
+ process Eclipse ---  thread1 -- editor 
+ 		      thread2 -- content assist 
+ 		      thread3 -- compiler
+ 		      
+  process MP3 player --  thread1 --audio
+  			 thread2 --- playlist editor
+  			 
+ ___________________________________________
+ 
+ Use linux POSIX library to run a multithreaded process in C !!!
+ 
+  pthread_create =  library function in the pthread library , in the pthread.h header file 
+ 
+  it will MAP  the thread with its execution path 
+  and put the thread in the READY Queue 
+ ____________________________
+ 
+ POSIX API for thread --- pthread_create ,pthread_join
+ 
+ pthread_join = it will block the current thread from going to next instruction 
+ 
+ for how long will it block ? till the thread passed in parameter does not complete !!!
+ 
+ 
+ HW --- run the threadex1.c threadex2.c and threadex3.c
+ 
+ Write a multithreaded program that will display table of 2 upto 20  with a sleep of 1 sec
+   2*1=2
+   2*2=4 ...
+   
+  second thread will show the factorial of 2 upto 20 
+   with a sleep of 1 sec 
+   
+   the main thread will join on both threads 
+   
+   
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 		      
+ 		      
+ 		      
+ 		      
+ 		      
+ 		      
+ 		      
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 			
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	 
+ 	 
+ 	 
+ 	 
+ 	 
+ 	 
+ 	 
+ 	 
+ 	 
+ 	 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+  
+  
+  	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 
+ 
+ 
+ 
+ 
+ 
+

@@ -1,0 +1,237 @@
+
+
+
+
+Good Evening :)
+
+Revision --- 
+
+external fragmentation
+Logical/offset address
+
+life cycle states of a process
+preemptive priority scheduling
+
+Segment table
+first fit best fit worst fit
+__________________________________
+
+Paging ---
+  --- based on fixed partition scheme
+  --- process division based on SIZE
+  ---  every process has many pages
+  	  each page has addresses from page offset 0
+  --- external framentation is totally removed
+  ---internal fragmentation
+  ---pages are tracked using page table
+  ---page table has 2 column ---page number and frame number
+   --- Very large page table size !!!
+   --- page table management is additional overhead
+   	  --different external mechanisms are used for
+   	  page table storage and search
+   	  ---a cache called as TLB translation lookaside buffer   used to hold page tables 
+   	  --- page tables may be maintained on hard-disk
+   
+   
+   
+   
+
+Segmentation
+  --- based on variable partition scheme
+  --- process division based on CONTENT
+  --- every process has many segments
+  	each segment has address from 0 seg offset
+  --- external fragmentation NOT completetly removed.	
+  ---- no internal fragmentation
+  --- segments are tracked using segment table
+  --- segment table has 3 column -- segno, segment base, seg length
+  --- SMALL Segment table size
+  
+  _______________________________________
+  
+  Actual address in paging =  
+  	Program counter has==?Page number, Page offset of the next instruction
+  	
+  	|
+  	|
+  	|
+  	Kernel picks up pagenumber 
+  	|
+  	|
+  	|
+  	REFER to page table and find frame number
+  	|
+  	|
+  	|
+  	Find the frame base address 
+  	
+  ACTUAL ADDRESS = FRAME BASE + PAGE OFFSET
+  	
+ _____________________________________________
+ 
+ Paged Segmentation !!!  First process is divided into segments and each segment is divided into pages!!!	
+  	
+ __________________________________________
+ 
+ Scenario 3 --- Partial process is loaded
+ 		@ Non consecutive locations	
+  	
+  What are the problems in loading Full process ?
+  1. Process size cannot exceed RAM size .
+  2. Unneccessary pages are loaded
+  3. Degree of Multiprogramming is reduced
+  	
+  	Degree of Multiprogramming= number of processes loaded in RAM at any given time 
+  	
+ __________________________
+ Shell Scripting ----------
+ 
+ What is SHELL ?  CLI program
+ Which is default shell ? bash 
+ how to see the current shell ? echo $SHELL 
+ 
+ how to print and add new line ? echo "message"
+ how to suppress new line while printing ?
+   echo -n "message"
+   
+ how to accept values in a variable ??
+   read x y z
+   
+ We can run commands directly in the script
+ how to add 2 integers ?  expr $x + $y
+ how to include expr in a statement ? back tick
+   sum=`expr $x + $y`
+   
+ how to set environment variable ?  
+ 	export PS1="h1>>"
+ 	
+ Structural statements in shell script ---
+   how to give a condition in shell script ? 
+   	operand1  operator  operand2
+ 	
+ 	relational operators for numbers =
+ 	  -lt , -gt , -ge , -le ,-eq ,-ne
+ 	
+ 	relational operators for strings =
+ 	   ==  , !=
+ 	   
+ 	unary operators = SINGLE OPERAND
+ 		-d  = is it a directory
+ 		-f = is it a file
+ 		-z = is the string empty 
+ 	   
+ 	   
+ 	   
+ 	
+EX1 --- ask the user to enter a number and tell whether it is divisible by 5
+
+
+EX2 ----  accept a number from user and tell whether it is less than equal or greater than 100.	
+ 	
+EX3 --- show a menu to the user
+1. add 2. subtract 3. multiply 4. divide	
+accept the choice and two numbers and show the result.
+ 	
+A) do with if elif
+B) do with switch case 
+
+_____________________________
+Loops 
+1. while loop
+2. utill loop
+3. for loop 2 variations
+
+
+Ex1 --- show numbers from 1 to 50 using while loop
+Ex2 --- show numbers from 1 to 50 using simple for loop , show coma separated numbers, no coma after last number
+Ex1 --- show numbers from 1 to 50 using until loop 	
+while loop runs -- as long as condition true
+util loop runs ---as long as condition is false 
+ 
+Ex --- using for-in  loop print the names of all files in the current folder 
+   
+   
+Ex --- accept a name from user and tell whether it is a file or a directory  
+   
+ 
+Ex --  accept a folder name from user
+	show contents of each file and folder in that folder
+	
+HW --- 
+1. write a shellscript that accepts a number
+	output
+	if user enters 5
+	*
+	**
+	***
+	****
+	*****
+	
+	1
+	12
+	123
+	1234
+	12345
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 	
+  	
+  	
+  	
+  	
+  	
+  	
+  	
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+

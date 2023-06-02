@@ -1,0 +1,112 @@
+Revision ---
+shell 
+compiler and interpreter
+ppid
+Ta and Tw
+context switiching
+preemptive and non preemptive priority
+drawbacks of SJF
+rmdir and rm -r
+___________________________________
+ps 
+ps -e
+tty
+
+Every command that we run on the terminal is a PROCESS
+------------------------
+kill  pid
+kill 2568
+--------------------------
+Kill is a command , kill is a process
+it sent a signal to another process of pid 2568 to terminate.
+kill terminated process 2568!!!
+-------------------------------------
+
+System call = fork !!
+
+fork = is used to create a child process
+
+if consecutive forks are called then to find out number of processes created use the formula
+  2 raised to number of forks
+  
+  if 3 consecutive forks 
+      2 raised to 3 =  8 processes
+____________________________________________
+fork will duplicate the address space !!!
+
+return type of fork --
+	parent process (3032)
+		v = fork
+		v = 3034
+	child process( 3034)
+		v = fork()
+		v =0
+		
+___________________________
+
+ the return value of fork is used to separate the work done by parent and child.
+ 
+    if( returnvalue > 0 that means parent )
+    {
+       ...work for parent
+    }
+    else  return value =0  that means child
+    {
+       ....work for child
+    }
+ ________________________________
+ HW -- run all the fork examples in the lab 
+ -___________________
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  	
+		
+		
+		
+		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

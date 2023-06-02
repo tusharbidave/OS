@@ -1,0 +1,233 @@
+
+
+
+Good Evening :))
+
+	Partial process should be loaded in RAM @non contiguous locations
+	to overcome the problems of loading full process in the RAM --- PART of the process is loaded in the RAM .
+	
+For example -- 10% of the total pages are loaded in the RAM 
+
+One process Px has 100 pages
+How many pages in the RAM = 10 pages in the RAM
+How many entries in the page table = 10 entries
+
+Where will the remaining 90 pages be ? Secondary Memory has a special area as SWAP SPACE !
+
+
+Execution ---
+	insrre
+	let us say at some point 
+	next instruction is a function call to a function on page 42 offset 5
+	
+Q --- if pages 1 to 10 are in the RAM , where is page 42 ?? in SWAP SPACE.
+
+Page 42 is not in RAM ----PAGE FAULT interrupt occurs
+ISR of page fault comes into action - running process will go to wait state.
+Load the page 42 in the free frame in RAM !!!
+move the FAULTING process to ready Q. Later the process will resume execution
+
+Page 42 is loaded on demand --- HENCE virtual memory management is also called as DEMAND PAGING
+
+Page table is update with the new page entry .
+
+____________________________________
+
+If page fault occurs and no free frame is available to load the demanded page --- kernel will replace existing page with demanded page --- PAGE REPLACEMENT 
+
+To decide which page should be replaced --- PAGE REPLACEMENT ALGORITHM !!
+
+1. FIFO -- the page having oldest arrival time will be replaced
+
+2. OPT--- optimum page replacement --- theoretical
+   2a --- LRU = Least Recently Used --- the page having oldest access time will be replaced
+   
+   
+   2b ---MRU = Most Recently Used --- the page having recent access time will be replced
+   
+___________________________
+
+Global page replacement policy
+   If P1 has page fault --- the page of P4 may get replaced
+   This may lead to a chain of faulting processes which are waiting for page to be loaded!!!
+   this will prompt the kernel to create more processes to avoid CPU IDLING... leading more page replacements and more faulting processes ---
+   This will lead to system HANG state
+   PROBLEM --- THRASHING
+
+Local page replacement policy ---- If P1 has a page fault then another page of P1 will be replaced . Other processes wont be affected. This is a solution to THRASHING
+_____________________________________
+
+Assume that 3 Frames are allocated to a process 
+
+Page access string is as follows ----
+	1,2,3,4,3,1,5,6,1
+
+Using FIFO find out the page faults and page replacements .
+
+Using LRU find out the page faults and page replacements.
+
+Using MRU find out the page faults and page replacements
+
+
+HW  --- Page access string = 1,2,3,4,2,3,5,6,1
+	do this for 3 frames , FIFO LRU  MRU 
+	do again for 4 frames , FIFO LRU, MRU 
+
+____________________________________________
+Belady's Anomaly !!!
+___________________________________________
+
+Redirection ---- 
+the output of any command ---by default goes to console
+redirection  --- the output of a command is sent to a file 
+
+output redirection ----
+>  = overwrite the destination
+>> = append to the destination
+
+__________
+ls   } observe output
+
+ls > myfiles  } observe output using cat 
+_________________________
+
+Ex1 - write a shell script that will accept any number of numbers from user till user enters -1
+add the numbers to a file
+see the contents of that file
+
+Ex 2 - Modify the above code to show the sum of all numbers in the numbers files
+
+Ex3 ---  Text Handling Commands - sort, head,tail,wc
+
+  sort = bydefault  sorts in ascending order alphabetically , lexicographically
+  
+  sort -n  filename  to sort numerically ascending
+  sort -n -r filename to sort numerically descending
+  sort -k 2 players
+  sort -k 3 players
+  sort -k 3 -r players
+   -k = used to denote the column by which to sort 
+   
+
+head -2  = it shows top n rows in the file
+     
+tail -3 = it shows bottom n rows in the file
+
+wc = word count
+wc players
+wc -l players
+wc -c players
+wc -w players
+
+
+grep = command is used to search 
+
+grep "searchstr" players
+
+grep "r$" players 
+
+$ = indicates end of line 
+
+grep "^1" players
+
+^ = cap indicates begining of line
+
+grep "[u-z]" players
+
+grep "[U-Zu-z]" players  
+
+grep "[2-5]" players 
+
+REVERSE search  =  where search string is NOT present
+	grep -v "[2-5]"  players 
+  show all the rows that do not have numbers between 2 to 5 
+  
+________________________________________________
+ command line arguments ----
+  we can access command line arguments using positional parameters 
+  
+  x  $x
+  0  $0
+  1  $1
+  
+  $0 , $1,...$position  } positional parameter
+
+HW - using $@  and for-in loop show the sum of all numbers entered as command line arguments 
+
+HW  run the date and cal with different options, search the options in manual
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+   
+   
+   
+   
+   
+   
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

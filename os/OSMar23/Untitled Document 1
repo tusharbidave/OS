@@ -1,0 +1,42 @@
+
+
+Memory Management by the Kernel ---
+
+Memory ---RAM ---Main Memory ---Primary Memory---Volatile Memory!!!!
+
+Memory is divided into 
+kernel space ---OS processes, ready Q, IVT,ISR
+User space -- our processes
+
+1 byte of memory is assigned one address( hexadecimal )
+
+memory address= is a hex number given to identify a location or a byte !!!
+
+
+memory addresses --------
+	1. physical address = address that identifies each RAM location of one byte .It starts from 1 upto for example upto 16GB RAM ( 16* 1000000000 )
+	
+	2. Logical address OR 	3. Offset address
+	
+	4. Base address
+	5. Actual address
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

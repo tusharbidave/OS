@@ -1,0 +1,293 @@
+IR= instruction register
+Accumulator 
+CLI = OS acts as CLI between end user and system
+system call = interface between program user and system
+
+CPU instruction = 
+IO instruction =
+DMA = for data transfer between ram and IO device
+volatile memories = RAM ,cache, registers
+cd = current folder 
+prompt 
+what is the topmost folder of linux = /
+define OS 
+
+______________
+Interrupt Handling  --- 
+
+interrupt ? disturbance / kind of a signal 
+who gets the interrupt ?  CPU pins
+
+TO handle interrupt = ISR  = Interrupt Service Routine
+
+ISR = subroutine = procedure = function !!!
+the code that should be executed when interrupt occurs is written in ISR 
+
+Mapping of Interrupt number and ISR is done in Interrupt-Vector-Table.
+
+Who sends the interrupt ?  
+1.  IO device sends interrupt  ?  to indicate IO complete
+2. Timer generates interrupt after time interval
+3. kernel generates interrupts
+4. program generate interrupt
+
+
+Maskable interrupts = these can be ignored
+	timer interrupt could be maskable
+	ctrl-c could be maskable
+	
+Non Maskable interrupts = these can never be ignored
+  TRAP interrupt is non maskable
+  
+HW ---  create list of few interrupts that are maskable and non maskable
+
+_________________________________________
+
+kernel  =  OS 
+
+Two types of Kernel  ------
+	1. Monolithic kernel
+	2. Micro Kernel 
+_________________________________________
+
+Kernel Space , User Space 
+
+Space in the RAM  reserved for Kernel programs is Kernel space.
+
+Space in the RAM for user programs is User Space.
+
+If the user program tries to access kernel space then INTERRUPT is raised.
+
+________________________________________________
+Kernel mode and User mode ( Restricted access )
+
+Kernel mode is used to execute privilaged instructions
+User mode is where only non-privilaged instructions can run . 
+
+User programs cannot execute privilaged instructions 
+as user programs run in USER mode .
+_______________________________________
+BootStrapping  -----   
+
+Loader = hard disk pe program find karo aur RAM me load karo.  ( done by Kernel ) 
+
+BIOS ROM 
+BootLoader = load the kernel bootstrap code from fixed location to RAM  --- Ex GRUBLOADER 
+EEPROM  / Boot Sector  } FIXED location where kernel bootstrap code is kept .
+
+
+SYSTEM ON  --- 
+POST  = Power ON Self Test 
+BIOS bootloader loads the kernel bootstrap program into RAM
+
+BootStrapping = loading the kernel into RAM on power ON .
+_________________________________________________
+
+System management tasks of GPOS [ General Purpose OS ]
+	1. Process Management
+	2. Memory Management
+	3. IO Management
+	4. Security
+	
+________________________________________________
+Process Management is a TASK done by OS .
+
+Process = non tangible entity
+
+Process in OS = program in execution is a process
+			  = running program
+	
+	Program NOT in execution
+			Reside on HDD/secondary storage
+			Program does not have a life span
+	
+	Program in execution
+			Loaded in RAM 
+			Process
+			Every Process has Life SPAN  and hence it has a life cycle 
+	Stages /phases of process life cycle 
+		1. created /born
+			when user runs the program - process may get created.
+			Kernel creates a PCB for process.
+			Kernel loads the process into RAM --- PROCESS SPACE / Process Address SPACE 
+			[ Every process gets EXCLUSIVE process address space in RAM ]
+			
+			
+		2. ready  = the PCB is added to ready queue and it waits for the CPU
+		3. running =  process gets the CPU so one by one instruction is executed on CPU 
+		  main()
+		  {  //yahan se shuru
+			instructions
+			...
+			...
+			
+		  }//yahan pe khatam
+		
+		4. waiting  = process waits for DMA to complete IO.
+			IO WAIT STATE .
+			
+		5. terminated = process ends as it reaches end of main. 
+			process address space is FREED
+			PCB variable is released
+			
+_____________________________________________________
+
+
+
+File Handling Commands
+		clear , pwd , cd , mkdir , cd .. , ls , cd .
+		
+	
+folder creation = mkdir
+file creation =  touch  }  create a 0kb file
+				OR
+				vi				create a file and open in editor
+	
+  
+HW --- sequence1 --------
+  touch filename
+  ls
+  ls -l
+  mkdir foldername
+  ls -l
+
+OBSERVE the effect of ls -l (long listing details )
+
+---------------------------------
+
+vi editor is a command line editor 
+
+ vi  filename
+ This works in 2 modes 
+ 1. command mode  ( press esc key )  (press :wq for save and quit
+ 2. insert mode  ( press i )
+ 
+-----------------------------------
+
+HW ----sequence2 ------
+
+   vi  filename
+   press i and enter data 
+   press esc and press :wq
+   ls -l 
+   
+------------------------------------------
+  HW sequence 3 ---------
+  
+  cat filename
+  tac filename
+  
+--------------------------------------------------
+
+remove a file and a folder 
+	rmdir = to remove empty folder
+	rm -r = to remove non empty folder
+	rm = to remove file
+	
+--------------
+HW sequence 4 -----
+	rmdir emptyfolder
+	ls -l
+	rm filename
+	ls -l
+	cd ..
+	rm -r  nonemptyfoldername
+	ls -l 
+------------------------
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+	
+		
+	
+			
+			
+			
+			
+			
+			
+			
+			
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

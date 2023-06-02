@@ -1,0 +1,185 @@
+
+
+
+Good Afternoon :) 
+
+Problem  - DEADLOCK 
+
+Process , Resources( file , kbd, printer, mouse , buffer , locks )
+
+Process wants to use the resources
+Process will request to Kernel 
+	1. resource is available so allocate it to the process . Process will use the resource and release it .
+	
+	2. resource is already allocated to some other process so the process requesting it MUST wait .
+	If this WAIT becomes indefinite then it may be a deadlock situation.
+	
+For an Indefinite wait to QUALIFY as a DEADLOCK
+it should have 4 Neccessary Conditions 
+	1. Mutual Exclusion
+	2. hold and wait
+	3. No preemption
+	4. Circular wait
+	
+To keep track of processes and resources the kernel maintains a data structure called as RAG = Resource Allocation Graph.
+
+Cycle in RAG may indicate deadlock !!!
+
+Dining Philosopher's Problem = classical deadlock problem !!!
+
+Solution the the Deadlock Problem -----
+   1a. deadlock prevention
+   	break any one of the 4 necessary conditions
+ a)If resource is mutually exclusive = Have a copy
+ b) dont allow a process to wait after holding a resource
+ c) kernel can be preemptive and forcefully release resources from the process
+ d) by using proper algorithms check for cycle in RAG --- dont let RAG cycle happen 	
+   	
+   1b. deadlock avoidance  --- Banker's algorithm 
+   kernel may implement banker's algo or a similar one
+   
+   when a process makes a request to the kernel for the resource 
+   
+   kernel reviews the position of allocated resources, available resources and future needs of the processes if the request is ACCEPTED
+   If after reviewing the result is that the system lands in SAFE STATE then the request is ACCEPTED
+   other wise if the request would land in UNSAFE STATE then the request is rejected.
+   
+   Operating System Concepts ( latest edition ) 
+     - Silbersachtz
+     -Galvin  
+   2. deadlock handling 
+   	POST deadlock handling 
+   	From the RAG cycle the kernel will kill a low priority process- the resources held by that process are released. Kernel tries to solve the deadlock using those resourses . if not successful then kill one more resources.
+   	
+   	
+   3. ignore --- ubuntu --- do nothing !!!
+
+___________________________________________
+ Deadlock  and Starvation 
+
+Deadlock =  process waits for IO resources 
+	 cause = 4 neccessary conditions
+	 solution = prevention , avoidance, handling and ignore
+
+Starvation = process waits for CPU
+	cause = low priority
+	solution = AGEING ( if a process waits for too long then promote it to higher priority )
+
+Similarity between deadlock and starvation ---
+in both cases process waits indefinitely !!!
+_______________________________________________
+
+waitpid  , zombie and orphan processes 
+
+fork () = Create a child process 
+        = the return value of fork ---  
+        	parent process gets pid of child process and child process gets a 0 .
+        	
+Scenario ---
+	Process P created  a  process C
+	P and C are running in round robin
+	ppid of C = pid of P
+
+	P terminates and C is still running 
+	C is called as ORPHAN process and it is adopted by any kernel process!!!
+	ppid of C = pid of kernel process 
+
+
+
+Scenario2 ----
+	Process P created a process C
+	P and C are running in round robin 
+	ppid of C = pid of P
+	
+	P terminates and C is still running 
+	before C could be adopted by kernel process 
+	C also terminates.
+	Nobody clears the process tables entries of C even though C is terminated. C is called as ZOMBIE process.
+	Due to zombie --- process table entries are not cleared and space is wasted
+	
+	
+To prevent zombies - it is advised that the parent process should be blocked till child process is running. After child terminates the parent will do the clean up and prevent zombies .
+	
+Parent is blocked and not allowed to terminate till the child does not terminate ---- this is achieved using a system call = waitpid()
+	
+HW --- try the waitpid code discussed in class 
+
+ALso study comparatively --- sleep, pthrea_join and waitpid .
+__________________________________________
+
+Exec family of functions 
+
+	fork = creates and runs a child process
+	     = duplicate the process address space
+	     = two different PIDs for parent and child
+	
+	exec = runs a new process
+	     = new process captures the space of original process . It replaces current process image with a new process image .
+	     
+	execl = we give the path of the command 
+	execlp = find the command in the PATH  variable
+	 execle
+	 
+	 
+	 execv 
+	 execvp
+	 execve
+
+
+ difference between execl and execv }  how parameters are passed .
+ 
+ 	execl("ls","ls" ,"-l" ); //comma separated parameters
+ 	
+ 	execv ( arr )  // array parameter is passed 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
